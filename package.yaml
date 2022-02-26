@@ -1,0 +1,38 @@
+name:                compiler
+version:             0.1.0.0
+
+dependencies:
+- base >= 4.7 && < 5
+- text
+
+default-extensions:
+- OverloadedStrings
+
+library:
+  source-dirs: src
+  dependencies:
+  - megaparsec
+  - either
+
+executables:
+  compiler-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - compiler
+
+tests:
+  compiler-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - compiler
+    - hspec
