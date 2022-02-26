@@ -13,6 +13,8 @@ library:
   dependencies:
   - megaparsec
   - either
+  ghc-options:
+  - -pgmL markdown-unlit
 
 executables:
   compiler-exe:
@@ -22,6 +24,7 @@ executables:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -pgmL markdown-unlit
     dependencies:
     - compiler
 
@@ -33,6 +36,7 @@ tests:
     - -threaded
     - -rtsopts
     - -with-rtsopts=-N
+    - -pgmL markdown-unlit
     dependencies:
     - compiler
     - hspec
